@@ -11,7 +11,7 @@ game made using jquery
 ### What does it?
 
 ## 💻 Deploy
-- [Deploy](https://jessicasilvano.github.io/aparecida-nutricionista/)
-- [Code](https://github.com/jessicasilvano/aparecida-nutricionista/blob/master/index.html)
+- [Deploy](https://jessicasilvano.github.io/jogo-jquery/public/principal.html)
+- [Code](https://github.com/jessicasilvano/jogo-jquery/blob/master/public/principal.html)
 
 
