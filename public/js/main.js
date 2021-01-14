@@ -5,6 +5,7 @@ $(document).ready(function(){
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
+    inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);
 })
 
@@ -43,6 +44,30 @@ function inicializaCronometro() {
     });
 }
 
+function inicializaMarcadores() {
+  var frase = $(".frase").text();
+  campo.on("input", function () {
+    var digitado = campo.val();
+    var comparavel = frase.substr(0, digitado.length);
+
+    if (digitado == comparavel) {
+      campo.addClass("borda-verde");
+      campo.removeClass("borda-vermelha");
+    } else {
+      campo.addClass("borda-vermelha");
+      campo.removeClass("borda-verde");
+    }
+
+    /**
+     * O If também pode ser escrito assim:
+     * var ehCorreto = (digitado == comparavel);
+     *
+     * campo.toggleClass("borda-verde", ehCorreto);
+     * campo.toggleClass("borda-vermelha", !ehCorreto);
+     **/
+  });
+}
+
 function reiniciaJogo(){
     campo.attr("disabled",false);
     campo.val("");
@@ -51,5 +76,7 @@ function reiniciaJogo(){
     $("#tempo-digitacao").text(tempoInicial);
     inicializaCronometro(); //novo
     campo.toggleClass("campo-desativado");
+    campo.removeClass(".campo-errado");
+    campo.removeClass(".campo-correto");
 }
 
